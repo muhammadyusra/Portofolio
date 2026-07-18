@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Yusra — Portofolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --navy-deep: #0c1626;
+      --navy-panel: #10233c;
+      --navy-line: #1f3b5c;
+      --grid-line: rgba(94, 200, 232, 0.08);
+      --ink-cyan: #5ec8e8;
+      --ink-amber: #f2a93b;
+      --text-main: #e8edf2;
+      --text-muted: #8ca0b8;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--navy-deep);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-image:
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ::selection {
+      background: var(--ink-cyan);
+      color: var(--navy-deep);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--ink-amber);
+      outline-offset: 3px;
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ---------- NAV ---------- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(12, 22, 38, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--navy-line);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      color: var(--ink-cyan);
+    }
+
+    .logo span {
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink-cyan);
+    }
+
+    .nav-links a::before {
+      content: attr(data-num);
+      color: var(--ink-amber);
+      margin-right: 6px;
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .nav-toggle span {
+      width: 22px;
+      height: 2px;
+      background: var(--ink-cyan);
+      display: block;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      position: relative;
+      padding: 100px 0 120px;
+      border-bottom: 1px solid var(--navy-line);
+    }
+
+    .hero-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 70px;
+    }
+
+    .hero-left {
+      flex: 1;
+    }
+
+    .hero-right {
+      width: 380px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .profile-frame {
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      padding: 8px;
+      background: linear-gradient(135deg,
+          var(--ink-cyan),
+          var(--ink-amber));
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .profile-frame img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid var(--navy-deep);
+      display: block;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .45);
+    }
+
+    @keyframes float {
+
+      0% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+
+    }
+
+    .crop {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      opacity: 0.5;
+    }
+
+    .crop::before,
+    .crop::after {
+      content: '';
+      position: absolute;
+      background: var(--ink-cyan);
+    }
+
+    .crop::before {
+      width: 100%;
+      height: 1px;
+      top: 50%;
+    }
+
+    .crop::after {
+      width: 1px;
+      height: 100%;
+      left: 50%;
+    }
+
+    .crop.tl {
+      top: 24px;
+      left: 24px;
+    }
+
+    .crop.tr {
+      top: 24px;
+      right: 24px;
+    }
+
+    .hero-label {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--ink-amber);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .hero-label::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--ink-amber);
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(2.6rem, 7vw, 5.2rem);
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 .accent {
+      color: var(--ink-cyan);
+    }
+
+    .typing-loop {
+    color: white;
+    border-right: 3px solid var(--ink-cyan);
+    padding-right: 5px;
+    animation: cursor .7s infinite;
+  }
+
+
+@keyframes cursor {
+
+  50% {
+    border-color: transparent;
+  }
+
+}
+
+    .hero-sub {
+      max-width: 560px;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 40px;
+    }
+
+    .hero-sub strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-muted);
+      border-top: 1px dashed var(--navy-line);
+      padding-top: 24px;
+      margin-top: 40px;
+    }
+
+    .hero-meta div span {
+      display: block;
+      color: var(--ink-cyan);
+      font-size: 11px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .btn {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      padding: 13px 22px;
+      border: 1px solid var(--ink-cyan);
+      color: var(--ink-cyan);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      letter-spacing: 0.03em;
+    }
+
+    .btn:hover {
+      background: var(--ink-cyan);
+      color: var(--navy-deep);
+    }
+
+    .btn.solid {
+      background: var(--ink-amber);
+      border-color: var(--ink-amber);
+      color: var(--navy-deep);
+      font-weight: 600;
+    }
+
+    .btn.solid:hover {
+      background: transparent;
+      color: var(--ink-amber);
+    }
+
+    /* ---------- SECTION HEADERS ---------- */
+    section {
+      padding: 90px 0;
+      border-bottom: 1px solid var(--navy-line);
+    }
+
+    .sec-head {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 50px;
+    }
+
+    .sec-num {
+      font-family: var(--font-mono);
+      color: var(--ink-amber);
+      font-size: 13px;
+    }
+
+    .sec-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 4vw, 2.3rem);
+      font-weight: 600;
+    }
+
+    .sec-line {
+      flex: 1;
+      height: 1px;
+      background: var(--navy-line);
+    }
+
+    /* ---------- ABOUT ---------- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      font-size: 1rem;
+    }
+
+    .about-text strong {
+      color: var(--text-main);
+    }
+
+    .id-card {
+      background: var(--navy-panel);
+      border: 1px solid var(--navy-line);
+      padding: 28px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      position: relative;
+    }
+
+    .id-card::before {
+      content: 'FILE_ID // 01';
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      background: var(--navy-deep);
+      padding: 0 8px;
+      color: var(--ink-amber);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+    }
+
+    .id-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--navy-line);
+      color: var(--text-muted);
+    }
+
+    .id-row:last-child {
+      border-bottom: none;
+    }
+
+    .id-row b {
+      color: var(--text-main);
+      font-weight: 500;
+      text-align: right;
+    }
+
+    /* ---------- SKILLS ---------- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px 40px;
+    }
+
+    .skill-row {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--navy-line);
+    }
+
+    .skill-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 10px;
+    }
+
+    .skill-name {
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+
+    .skill-val {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--ink-cyan);
+    }
+
+    .meter {
+      height: 6px;
+      background: var(--navy-panel);
+      border: 1px solid var(--navy-line);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .meter-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--ink-cyan), var(--ink-amber));
+      width: 0%;
+      transition: width 1.2s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .softskills {
+      margin-top: 56px;
+    }
+
+    .softskills-label {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--ink-amber);
+      letter-spacing: 0.1em;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      padding: 9px 16px;
+      border: 1px solid var(--navy-line);
+      color: var(--text-muted);
+      background: var(--navy-panel);
+    }
+
+    /* ---------- EDUCATION ---------- */
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 6px;
+      bottom: 6px;
+      width: 1px;
+      background: var(--navy-line);
+    }
+
+    .t-item {
+      position: relative;
+      padding-bottom: 44px;
+    }
+
+    .t-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .t-item::before {
+      content: '';
+      position: absolute;
+      left: -30px;
+      top: 4px;
+      width: 9px;
+      height: 9px;
+      background: var(--navy-deep);
+      border: 2px solid var(--ink-cyan);
+      border-radius: 50%;
+    }
+
+    .t-year {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--ink-amber);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .t-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .t-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 560px;
+    }
+
+    /* ---------- PROJECTS ---------- */
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .proj-card {
+      background: var(--navy-panel);
+      border: 1px solid var(--navy-line);
+      padding: 26px;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .proj-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--ink-cyan);
+    }
+
+    .proj-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ink-cyan);
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+      display: inline-block;
+    }
+
+    .proj-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+
+    .proj-card p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    /* ---------- CONTACT ---------- */
+    .contact-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .contact-big {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 5vw, 3.2rem);
+      font-weight: 700;
+      max-width: 600px;
+      line-height: 1.15;
+    }
+
+    .contact-big .accent {
+      color: var(--ink-amber);
+    }
+
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+    }
+
+    .contact-list a {
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: color 0.2s ease;
+    }
+
+    .contact-list a:hover {
+      color: var(--ink-cyan);
+    }
+
+    .contact-list a::before {
+      content: '→';
+      color: var(--ink-amber);
+    }
+
+    footer {
+      padding: 28px 0;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ---------- REVEAL ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width:860px) {
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-inner {
+        align-items: flex-start;
+      }
+
+      .hero-container {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+
+      .hero-cta {
+        justify-content: center;
+      }
+
+      .hero-meta {
+        justify-content: center;
+      }
+
+    }
+
+    @media (max-width: 700px) {
+      .nav-links {
+        position: fixed;
+        top: 61px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: var(--navy-deep);
+        border-bottom: 1px solid var(--navy-line);
+        padding: 20px 24px;
+        gap: 18px;
+        transform: translateY(-140%);
+        transition: transform 0.3s ease;
+      }
+
+      .nav-links.open {
+        transform: translateY(0);
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      .hero {
+        padding: 70px 0 80px;
+      }
+
+      .hero-meta {
+        gap: 24px;
+      }
+
+      section {
+        padding: 64px 0;
+      }
+    }
+
+    /* ---------- PROJECT LINK ---------- */
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+    }
+
+    .project-tech span {
+      padding: 6px 12px;
+      border: 1px solid var(--navy-line);
+      border-radius: 20px;
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: var(--ink-cyan);
+      background: rgba(94, 200, 232, 0.05);
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      color: var(--ink-cyan);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      transition: .3s;
+    }
+
+    .project-link:hover {
+      color: var(--ink-amber);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="crop tl"></div>
+  <div class="crop tr"></div>
+
+  <header>
+    <nav>
+      <div class="logo">MUHAMMAD<span>_YUSRA.exe</span></div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Buka menu navigasi" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" data-num="01">Tentang</a></li>
+        <li><a href="#skills" data-num="02">Keterampilan</a></li>
+        <li><a href="#education" data-num="03">Pendidikan</a></li>
+        <li><a href="#experience" data-num="04">Pengalaman</a></li>
+        <li><a href="#projects" data-num="05">Proyek</a></li>
+        <li><a href="#certification" data-num="06">GitHub Activity</a></li>
+        <li><a href="#contact" data-num="07">Kontak</a></li>
+      </ul>
+
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+
+      <div class="wrap hero-container">
+
+        <div class="hero-left">
+
+          <div class="hero-label">
+            Blueprint — Profil Mahasiswa
+          </div>
+
+          <h1>
+            Muhammad<br>
+            <span class="accent">Yusra.</span>
+          </h1>
+
+        <p class="hero-sub">
+          <strong>
+            <span class="typing-loop"></span>
+          </strong>
+          <br>
+          Mahasiswa Institut Teknologi dan Bisnis Indonesia yang berfokus pada
+          pengembangan aplikasi, analisis data, dan solusi digital berbasis teknologi.
+        </p>
+
+          <div class="hero-cta">
+            <a href="#contact" class="btn solid">Hubungi Saya</a>
+            <a href="#projects" class="btn">Lihat Proyek</a>
+          </div>
+
+          <div class="hero-meta">
+
+            <div>
+              <span>Institusi</span>
+              Institut Teknologi &amp; Bisnis Indonesia
+            </div>
+
+            <div>
+              <span>Status</span>
+              Mahasiswa Aktif
+            </div>
+
+            <div>
+              <span>Fokus</span>
+              Teknologi &amp; Bisnis Digital
+            </div>
+
+            <div>
+              <span>Lokasi</span>
+              Indonesia
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="hero-right">
+
+          <div class="profile-frame">
+
+            <img src="images/avatar.png" alt="Muhammad Yusra">
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="sec-head"><span class="sec-num">01</span><span class="sec-title">Tentang Saya</span><span
+            class="sec-line"></span></div>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p>Saya <strong>Muhammad Yusra</strong>, mahasiswa aktif di <strong>Institut Teknologi dan Bisnis
+                Indonesia</strong>. Saya tertarik mengembangkan kemampuan di bidang teknologi sekaligus memahami sisi
+              bisnis dari setiap solusi yang dibangun.</p>
+            <p>Portofolio ini merangkum keterampilan, perjalanan akademik, dan proyek yang sedang saya kerjakan sebagai
+              bagian dari proses belajar menuju karier di industri teknologi dan bisnis.</p>
+            <p>Terbuka untuk kolaborasi, magang, maupun diskusi seputar proyek dan ide baru.</p>
+          </div>
+          <div class="id-card reveal">
+            <div class="id-row"><span>Nama</span><b>Muhammad Yusra</b></div>
+            <div class="id-row"><span>Institusi</span><b>Institut Teknologi &amp; Bisnis Indonesia</b></div>
+            <div class="id-row"><span>Peran</span><b>Mahasiswa</b></div>
+            <div class="id-row"><span>Minat</span><b>Teknologi & Bisnis Digital</b></div>
+            <div class="id-row"><span>Bahasa</span><b>Indonesia</b></div>
+            <div class="id-row"><span>Status</span><b>Terbuka untuk Peluang</b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <div class="sec-head"><span class="sec-num">02</span><span class="sec-title">Keterampilan</span><span
+            class="sec-line"></span></div>
+
+        <div class="skills-grid">
+          <div class="skill-row reveal">
+            <div class="skill-top"><span class="skill-name">Microsoft Office (Word, Excel, PowerPoint)</span><span
+                class="skill-val">90%</span></div>
+            <div class="meter">
+              <div class="meter-fill" data-fill="80"></div>
+            </div>
+          </div>
+          <div class="skill-row reveal">
+            <div class="skill-top"><span class="skill-name">HTML, CSS &amp; Dasar Web Development</span><span
+                class="skill-val">75%</span></div>
+            <div class="meter">
+              <div class="meter-fill" data-fill="75"></div>
+            </div>
+          </div>
+          <div class="skill-row reveal">
+            <div class="skill-top"><span class="skill-name">Analisis &amp; Pengolahan Data Dasar</span><span
+                class="skill-val">70%</span></div>
+            <div class="meter">
+              <div class="meter-fill" data-fill="70"></div>
+            </div>
+          </div>
+          <div class="skill-row reveal">
+            <div class="skill-top"><span class="skill-name">Desain Grafis (Canva)</span><span
+                class="skill-val">80%</span></div>
+            <div class="meter">
+              <div class="meter-fill" data-fill="80"></div>
+            </div>
+          </div>
+          <div class="skill-row reveal">
+            <div class="skill-top"><span class="skill-name">Manajemen Proyek Dasar</span><span
+                class="skill-val">72%</span></div>
+            <div class="meter">
+              <div class="meter-fill" data-fill="72"></div>
+            </div>
+          </div>
+          <div class="skill-row reveal">
+            <div class="skill-top"><span class="skill-name">UI/UX Design (Figma)</span><span
+                class="skill-val">78%</span></div>
+            <div class="meter">
+              <div class="meter-fill" data-fill="70"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="softskills reveal">
+          <div class="softskills-label">Keterampilan Non-Teknis</div>
+          <div class="chip-row">
+            <span class="chip">Komunikasi</span>
+            <span class="chip">Kerja Tim</span>
+            <span class="chip">Manajemen Waktu</span>
+            <span class="chip">Berpikir Kritis</span>
+            <span class="chip">Public Speaking</span>
+            <span class="chip">Adaptif</span>
+            <span class="chip">Problem Solving</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="sec-num">03</span>
+          <span class="sec-title">Pendidikan</span>
+          <span class="sec-line"></span>
+        </div>
+
+        <div class="timeline">
+
+          <div class="t-item reveal">
+            <span class="t-year">2023 - Sekarang</span>
+            <div class="t-title">Institut Teknologi dan Bisnis Indonesia</div>
+            <div class="t-desc">
+              Program Studi Rekayasa Perangkat Lunak (RPL). Mempelajari pengembangan perangkat lunak, Business
+              Intelligence, Data Mining, Machine Learning, Web Development, Mobile Development, serta Basis Data.
+            </div>
+          </div>
+
+          <div class="t-item reveal">
+            <span class="t-year">2022 - 2023</span>
+            <div class="t-title">Gap Year</div>
+            <div class="t-desc">
+              Mengambil jeda selama satu tahun sebelum melanjutkan pendidikan ke perguruan tinggi sambil mempersiapkan
+              diri untuk studi di bidang Rekayasa Perangkat Lunak.
+            </div>
+          </div>
+
+          <div class="t-item reveal">
+            <span class="t-year">2019 - 2022</span>
+            <div class="t-title">SMK Swasta Bintang Langkat</div>
+            <div class="t-desc">
+              Jurusan Teknik Komputer Jaringan (TKJ). Mempelajari dasar pemrograman, pengembangan website, basis data,
+              dan pengembangan aplikasi.
+            </div>
+          </div>
+
+          <div class="t-item reveal">
+            <span class="t-year">2016 - 2019</span>
+            <div class="t-title">SMP Negeri 2 Hinai</div>
+            <div class="t-desc">
+              Menyelesaikan pendidikan tingkat SMP dan membangun dasar kemampuan akademik sebagai bekal melanjutkan ke
+              jenjang kejuruan.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap">
+
+        <div class="sec-head">
+          <span class="sec-num">04</span>
+          <span class="sec-title">Pengalaman & Sertifikasi</span>
+          <span class="sec-line"></span>
+        </div>
+
+
+        <div class="timeline">
+
+
+          <div class="t-item reveal">
+
+            <span class="t-year">2025 - Sekarang</span>
+
+            <div class="t-title">
+              Software Development & Digital Project
+            </div>
+
+            <div class="t-desc">
+              Mengembangkan berbagai proyek teknologi seperti aplikasi mobile
+              Agrica​re berbasis Ionic Angular, website, backend menggunakan
+              Node.js, serta pengelolaan database MySQL sebagai bagian dari
+              pengembangan perangkat lunak.
+            </div>
+
+          </div>
+
+
+          <div class="t-item reveal">
+
+            <span class="t-year">2025</span>
+
+            <div class="t-title">
+              Data Science & Business Intelligence Project
+            </div>
+
+            <div class="t-desc">
+              Melakukan pengolahan data menggunakan Python, web scraping,
+              data cleaning, analisis sentimen, machine learning, serta
+              membuat dashboard Business Intelligence menggunakan Power BI.
+            </div>
+
+          </div>
+
+
+          <div class="t-item reveal">
+
+            <span class="t-year">2023 - Sekarang</span>
+
+            <div class="t-title">
+              Academic Learning & Technology Exploration
+            </div>
+
+            <div class="t-desc">
+              Mengembangkan kemampuan di bidang Rekayasa Perangkat Lunak melalui
+              pembelajaran akademik, eksplorasi framework, dokumentasi teknis,
+              serta praktik pengembangan aplikasi.
+            </div>
+
+          </div>
+
+
+          <!-- SERTIFIKAT -->
+          <div class="t-item reveal">
+
+            <span class="t-year">2024 - Sekarang</span>
+
+            <div class="t-title">
+              Seminar, Workshop & Certification
+            </div>
+
+            <div class="t-desc">
+              Aktif mengikuti seminar, workshop, dan kegiatan pengembangan
+              kompetensi untuk meningkatkan wawasan di bidang teknologi informasi,
+              pengembangan perangkat lunak, data, dan teknologi digital.
+            </div>
+
+
+            <div class="project-tech">
+
+              <span>Artificial Intelligence</span>
+              <span>Machine Learning</span>
+              <span>Web Development</span>
+              <span>Data Science</span>
+
+            </div>
+
+
+            <a href="https://drive.google.com/drive/folders/1P7sfRZ82XpwY9M9DHKREwv4pV7kk_NFv" target="_blank" class="project-link">
+              📄 Lihat Sertifikat
+            </a>
+
+          </div>
+
+
+        </div>
+
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+
+        <div class="sec-head">
+          <span class="sec-num">05</span>
+          <span class="sec-title">Proyek</span>
+          <span class="sec-line"></span>
+        </div>
+
+        <div class="proj-grid">
+
+          <!-- Project 1 -->
+          <div class="proj-card reveal">
+            <span class="proj-tag">WEB DEVELOPMENT</span>
+            <h3>Website Portofolio Pribadi</h3>
+
+            <p>
+              Membangun website portofolio responsif menggunakan HTML dan CSS
+              untuk menampilkan profil, keterampilan, pengalaman akademik,
+              serta dokumentasi proyek.
+            </p>
+
+            <div class="project-tech">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>Responsive</span>
+            </div>
+
+            <a href="https://github.com/muhammadyusra" target="_blank" class="project-link">
+              🔗 GitHub Repository
+            </a>
+
+          </div>
+
+
+          <!-- Project 2 -->
+          <div class="proj-card reveal">
+            <span class="proj-tag">DATA ENGINEERING</span>
+            <h3>Web Scraping Python</h3>
+
+            <p>
+              Mengembangkan sistem web scraping menggunakan Python untuk
+              mengambil data dari berbagai website, melakukan proses cleaning,
+              dan menyimpan hasil dalam format dataset.
+            </p>
+
+            <div class="project-tech">
+              <span>Python</span>
+              <span>BeautifulSoup</span>
+              <span>Pandas</span>
+            </div>
+
+            <a href="https://github.com/muhammadyusra/Text-dan-Web-Mining" target="_blank" class="project-link">
+              🔗 GitHub Repository
+            </a>
+
+          </div>
+
+
+          <!-- Project 3 -->
+          <div class="proj-card reveal">
+            <span class="proj-tag">BUSINESS INTELLIGENCE</span>
+            <h3>Dashboard Analisis Penjualan Power BI</h3>
+
+            <p>
+              Membuat dashboard Business Intelligence untuk mengolah data
+              transaksi penjualan menjadi visualisasi informasi yang membantu
+              proses analisis dan pengambilan keputusan.
+            </p>
+
+            <div class="project-tech">
+              <span>Power BI</span>
+              <span>Excel</span>
+            </div>
+
+            <a href="https://github.com/muhammadyusra/Business-Intelligence" target="_blank" class="project-link">
+              🔗 GitHub Repository
+            </a>
+
+          </div>
+
+
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+
+      <div class="wrap">
+
+        <div class="sec-head">
+          <span class="sec-num">06</span>
+          <span class="sec-title">GitHub Activity</span>
+          <span class="sec-line"></span>
+        </div>
+
+
+        <div class="github-card">
+
+          <img
+            src="https://github-readme-activity-graph.vercel.app/graph?username=muhammadyusra&bg_color=0c1626&color=5ec8e8&line=f2a93b&point=ffffff&area=true&hide_border=true"
+            alt="GitHub Activity Graph">
+        </div>
+
+
+      </div>
+
+    </section>
+
+    <section id="contact" style="border-bottom:none;">
+      <div class="wrap">
+        <div class="sec-head"><span class="sec-num">07</span><span class="sec-title">Kontak</span><span
+            class="sec-line"></span></div>
+        <div class="contact-inner">
+          <div class="contact-big reveal">Tertarik berkolaborasi atau sekadar ingin berdiskusi? <span
+              class="accent">Mari terhubung.</span></div>
+          <div class="contact-list reveal">
+            <a href="mailto:muhammadyusra1102@email.com">muhammadyusra@email.com</a>
+            <a href="https://wa.wizard.id/35e8d1" target="_blank">WhatsApp Muhammad Yusra</a>
+            <a href="https://instagram.com/muhammadyusra" target="_blank">instagram.com/muhammadyusra</a>
+            <a href="https://github.com/muhammadyusra" target="_blank">github.com/muhammadyusra</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Muhammad Yusra — Institut Teknologi dan Bisnis Indonesia
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', false);
+    }));
+
+    const revealEls = document.querySelectorAll('.reveal');
+    const meters = document.querySelectorAll('.meter-fill');
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          if (entry.target.classList.contains('skill-row')) {
+            const fill = entry.target.querySelector('.meter-fill');
+            if (fill) fill.style.width = fill.dataset.fill + '%';
+          }
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    revealEls.forEach(el => io.observe(el));
+    
+    const typingText = document.querySelector(".typing-loop");
+
+const words = [
+  "Software Developer",
+  "Data Enthusiast",
+  "UI/UX Designer",
+  "Business Intelligence Explorer"
+];
+
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+
+function typeEffect() {
+
+  const currentWord = words[wordIndex];
+
+  if (!deleting) {
+
+    typingText.textContent =
+      currentWord.substring(0, charIndex++);
+
+    if (charIndex > currentWord.length) {
+      deleting = true;
+      setTimeout(typeEffect, 1500);
+      return;
+    }
+
+  } else {
+
+    typingText.textContent =
+      currentWord.substring(0, charIndex--);
+
+    if (charIndex < 0) {
+
+      deleting = false;
+
+      wordIndex++;
+
+      if (wordIndex >= words.length) {
+        wordIndex = 0;
+      }
+
+    }
+
+  }
+  setTimeout(typeEffect, deleting ? 60 : 120);
+}
+typeEffect();
+  </script>
+
+</body>
+
+</html>
