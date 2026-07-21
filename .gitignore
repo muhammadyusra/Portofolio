@@ -1,0 +1,17 @@
+# dependencies
+node_modules/
+
+# vite build
+dist/
+
+# environment
+.env
+.env.local
+.env.production
+
+# macOS
+.DS_Store
+
+# editor
+.vscode/
+.idea/

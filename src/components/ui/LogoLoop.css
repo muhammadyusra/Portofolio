@@ -1,0 +1,54 @@
+.logo-loop {
+    overflow: hidden;
+    width: 100%;
+    mask-image: linear-gradient(to right,
+            transparent,
+            black 10%,
+            black 90%,
+            transparent);
+}
+
+
+.logo-loop-track {
+    display: flex;
+    width: max-content;
+    align-items: center;
+    gap: 50px;
+    animation-name: logo-scroll;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+
+.logo-loop-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: .7;
+    transition: .3s;
+}
+
+
+.logo-loop-item:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+
+.logo-loop-item img {
+    object-fit: contain;
+}
+
+
+
+@keyframes logo-scroll {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
+}
