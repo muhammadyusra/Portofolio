@@ -1,4 +1,4 @@
-import avatar from "../assets/avatar.png";
+import avatar from "../assets/Avatar.png";
 
 export default function Avatar({ size = 72, className = "" }) {
   return (
