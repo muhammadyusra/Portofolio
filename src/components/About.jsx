@@ -20,7 +20,7 @@ export default function About() {
         >
           <p className="eyebrow mb-4">// tentang</p>
           <h2 className="font-display text-3xl sm:text-4xl font-semibold text-fog leading-tight">
-            Berpikir seperti seorang arsitek sistem, membangun seperti seorang engineer.
+            Merancang solusi digital yang sederhana, skalabel, dan berorientasi pada kebutuhan pengguna.
           </h2>
         </motion.div>
 

@@ -238,7 +238,7 @@ export const certificates = [
     id: "c1",
     title: "Seminar Bank Mandiri",
     organizer: "Bank Mandiri",
-    year: "2026",
+    year: "2025",
     description:
       "Mengikuti seminar yang membahas wawasan industri, teknologi, dan pengembangan profesional.",
     image: seminarMandiri,
@@ -249,7 +249,7 @@ export const certificates = [
     id: "c2",
     title: "Seminar HIMAREKA",
     organizer: "HIMAREKA",
-    year: "2026",
+    year: "2025",
     description:
       "Mengikuti seminar organisasi mahasiswa Rekayasa Perangkat Lunak.",
     image: seminarHimareka,
@@ -270,7 +270,7 @@ export const certificates = [
   {
     id: "c4",
     title: "Seminar Penulisan Jurnal",
-    organizer: "Nama Penyelenggara",
+    organizer: "Penulisan Jurnal",
     year: "2025",
     description:
       "Mengikuti seminar penulisan jurnal untuk meningkatkan pemahaman mengenai penyusunan karya ilmiah dan publikasi akademik.",
